@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Language UniqueName="de" ReadableName="Deutsch">
+<Language UniqueName="en" ReadableName="English">
   <Translations>
-    <Translation ID="VSD_DESC" String="In der Entwicklung: Versuche, das erstmalige Abfahren (Spawnen) von ÖPNV-Fahrzeugen zu verzögern." />
-    <Translation ID="VSD_BUS_DEL" String="Bus Abfahrts-Verzögerung" />
-    <Translation ID="VSD_TRA_DEL" String="Tram Abfahrts-Verzögerung" />
-    <Translation ID="VSD_TRO_DEL" String="Trolleybus Abfahrts-Verzögerung" />
-    <Translation ID="TRN_CHOICE" String="Sprache festlegen" />
-    <Translation ID="TRN_SYS" String="Spielsprache verwenden" />
+    <Translation ID="VSD_DESC" String="UNDER DEVELOPMENT: attemps to slow down transport vehicle spawning." />
+    <Translation ID="VSD_BUS_DEL" String="Bus spawning delay" />
+    <Translation ID="VSD_TRA_DEL" String="Tram spawning delay" />
+    <Translation ID="VSD_TRO_DEL" String="Trolleybus spawning delay" />
+    <Translation ID="TRN_CHOICE" String="Set language" />
+    <Translation ID="TRN_SYS" String="Use game language" />
   </Translations>
 </Language>
