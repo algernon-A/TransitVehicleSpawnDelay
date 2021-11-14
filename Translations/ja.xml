@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language UniqueName="ja" ReadableName="日本語">
+  <Translations>
+    <Translation ID="VSD_DESC" String="開発中: 輸送車両のスポーン(出現)の遅延を試みます"/>
+    <Translation ID="VSD_BUS_DEL" String="バスのスポーンを遅延"/>
+    <Translation ID="VSD_TRA_DEL" String="トラムのスポーンを遅延"/>
+    <Translation ID="VSD_TRO_DEL" String="トローリーバスのスポーンを遅延"/>
+    <Translation ID="TRN_CHOICE" String="言語設定"/>
+    <Translation ID="TRN_SYS" String="ゲームの言語を使用"/>
+  </Translations>
+</Language>
