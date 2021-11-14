@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Language UniqueName="en" ReadableName="English">
   <Translations>
-    <Translation ID="VSD_DESC" String="UNDER DEVELOPMENT: attemps to slow down transport vehicle spawning." />
+    <Translation ID="VSD_DESC" String="Attemps to slow down transport vehicle spawning." />
     <Translation ID="VSD_BUS_DEL" String="Bus spawning delay" />
     <Translation ID="VSD_TRA_DEL" String="Tram spawning delay" />
     <Translation ID="VSD_TRO_DEL" String="Trolleybus spawning delay" />
