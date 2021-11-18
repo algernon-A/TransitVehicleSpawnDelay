@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Language UniqueName="ja" ReadableName="日本語">
   <Translations>
-    <Translation ID="VSD_DESC" String="輸送車両のスポーン(出現)の遅延を試みます"/>
+    <Translation ID="VSD_DESC" String="公共交通車両のスポーン(出現)間隔を調整・遅延します"/>
+    <Translation ID="VSD_DEP_PER" String="デポット単位で別々のタイマーを使用"/>
     <Translation ID="VSD_BUS_DEL" String="バスのスポーンを遅延"/>
     <Translation ID="VSD_TRA_DEL" String="トラムのスポーンを遅延"/>
     <Translation ID="VSD_TRO_DEL" String="トローリーバスのスポーンを遅延"/>
