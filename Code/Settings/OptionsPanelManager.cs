@@ -61,6 +61,9 @@ namespace TransitVehicleSpawnDelay
                     else
                     {
                         Close();
+
+                        // Save settings on close.
+                        ModSettings.Save();
                     }
                 };
             }
@@ -114,7 +117,7 @@ namespace TransitVehicleSpawnDelay
         /// </summary>
         private static void Close()
         {
-            // Save settings first.
+            // Save settings on close.
             ModSettings.Save();
 
             // We're no longer visible - destroy our game object.

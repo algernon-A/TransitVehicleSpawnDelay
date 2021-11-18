@@ -2,6 +2,7 @@
 <Language UniqueName="en" ReadableName="English">
   <Translations>
     <Translation ID="VSD_DESC" String="Attemps to slow down transport vehicle spawning." />
+    <Translation ID="VSD_DEP_PER" String="Use separate timers for each depot" />
     <Translation ID="VSD_BUS_DEL" String="Bus spawning delay" />
     <Translation ID="VSD_TRA_DEL" String="Tram spawning delay" />
     <Translation ID="VSD_TRO_DEL" String="Trolleybus spawning delay" />

@@ -21,6 +21,9 @@ namespace TransitVehicleSpawnDelay
         [XmlIgnore]
         internal static uint trolleybusDelay = 1024;
 
+        [XmlIgnore]
+        internal static bool perDepot = false;
+
 
         // Settings file name
         [XmlIgnore]
@@ -39,13 +42,18 @@ namespace TransitVehicleSpawnDelay
 
         // Framecount delays, separate for each transit type.
         [XmlElement("TramDelay")]
-        public uint TramDelay { get => tramDelay; set => tramDelay = value; }
+        public uint XMLTramDelay { get => tramDelay; set => tramDelay = value; }
 
         [XmlElement("BusDelay")]
-        public uint BusDelay { get => busDelay; set => busDelay = value; }
+        public uint XMLBusDelay { get => busDelay; set => busDelay = value; }
 
         [XmlElement("TrolleybusDelay")]
-        public uint TrolleybusDelay { get => trolleybusDelay; set => trolleybusDelay = value; }
+        public uint XMLTrolleybusDelay { get => trolleybusDelay; set => trolleybusDelay = value; }
+
+
+        // Use separate timer for each depot.
+        [XmlElement("PerDepot")]
+        public bool XMLPerDepot { get => perDepot; set => perDepot = value; }
 
 
         /// <summary>

@@ -39,17 +39,23 @@ namespace TransitVehicleSpawnDelay
             languageDropDown.parent.relativePosition = new Vector2(LeftMargin, currentY);
             currentY += languageDropDown.parent.height + GroupMargin;
 
+            // Per-depot timing checkbox.
+            UICheckBox perDepotCheck = UIControls.AddPlainCheckBox(this, Margin, currentY, Translations.Translate("VSD_DEP_PER"));
+            perDepotCheck.isChecked = ModSettings.perDepot;
+            perDepotCheck.eventCheckChanged += (control, value) => { ModSettings.perDepot = value; };
+            currentY += perDepotCheck.height + GroupMargin;
+
             // Bus delay slider.
             UISlider busSlider = AddDelaySlider(ref currentY, "VSD_BUS_DEL", ModSettings.busDelay);
-            busSlider.eventValueChanged += (control, value) => { ModSettings.busDelay = (uint)value; ModSettings.Save(); };
+            busSlider.eventValueChanged += (control, value) => { ModSettings.busDelay = (uint)value; };
 
             // Tram delay slider.
             UISlider tramSlider = AddDelaySlider(ref currentY, "VSD_TRA_DEL", ModSettings.tramDelay);
-            tramSlider.eventValueChanged += (control, value) => { ModSettings.tramDelay = (uint)value; ModSettings.Save(); };
+            tramSlider.eventValueChanged += (control, value) => { ModSettings.tramDelay = (uint)value; };
 
             // Trolleybus delay slider.
             UISlider trolleybusSlider = AddDelaySlider(ref currentY, "VSD_TRO_DEL", ModSettings.trolleybusDelay);
-            trolleybusSlider.eventValueChanged += (control, value) => { ModSettings.trolleybusDelay = (uint)value; ModSettings.Save(); };
+            trolleybusSlider.eventValueChanged += (control, value) => { ModSettings.trolleybusDelay = (uint)value; };
         }
 
 
