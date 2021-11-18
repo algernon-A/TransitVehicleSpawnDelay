@@ -2,6 +2,7 @@
 <Language UniqueName="zh" ReadableName="简体中文">
   <Translations>
     <Translation ID="VSD_DESC" String="试图延迟交通工具发车速度。" />
+    <Translation ID="VSD_DEP_PER" String="为不同的发车点使用单独的发车时间" />
     <Translation ID="VSD_BUS_DEL" String="延迟公交车发车速度" />
     <Translation ID="VSD_TRA_DEL" String="延迟有轨电车发车速度" />
     <Translation ID="VSD_TRO_DEL" String="延迟无轨电车发车速度" />
