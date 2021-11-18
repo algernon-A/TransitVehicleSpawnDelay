@@ -2,6 +2,7 @@
 using UnityEngine;
 using ICities;
 using ColossalFramework.UI;
+using ColossalFramework.Globalization;
 
 
 namespace TransitVehicleSpawnDelay
@@ -66,6 +67,9 @@ namespace TransitVehicleSpawnDelay
                         ModSettings.Save();
                     }
                 };
+
+                // Recreate panel on system locale change.
+                LocaleManager.eventLocaleChanged += LocaleChanged;
             }
         }
 
