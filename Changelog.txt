@@ -1,0 +1,3 @@
+﻿Version 1.1 -
+
+- Add option for spawn delays to apply per-depot
