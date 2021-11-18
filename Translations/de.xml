@@ -2,6 +2,7 @@
 <Language UniqueName="de" ReadableName="Deutsch">
   <Translations>
     <Translation ID="VSD_DESC" String="Versuche, das erstmalige Abfahren (Spawnen) von ÖPNV-Fahrzeugen zu verzögern." />
+    <Translation ID="VSD_DEP_PER" String="Nutze separate Verzögerungen je Depot" />
     <Translation ID="VSD_BUS_DEL" String="Bus Abfahrts-Verzögerung" />
     <Translation ID="VSD_TRA_DEL" String="Tram Abfahrts-Verzögerung" />
     <Translation ID="VSD_TRO_DEL" String="Trolleybus Abfahrts-Verzögerung" />
