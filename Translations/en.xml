@@ -6,6 +6,9 @@
     <Translation ID="VSD_BUS_DEL" String="Bus spawning delay" />
     <Translation ID="VSD_TRA_DEL" String="Tram spawning delay" />
     <Translation ID="VSD_TRO_DEL" String="Trolleybus spawning delay" />
+    <Translation ID="VSD_TIM_APP" String="In-game time approximately" />
+    <Translation ID="VSD_TIM_HRS" String="hours" />
+    <Translation ID="VSD_TIM_MIN" String="minutes" />
     <Translation ID="TRN_CHOICE" String="Set language" />
     <Translation ID="TRN_SYS" String="Use game language" />
   </Translations>

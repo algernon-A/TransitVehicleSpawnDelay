@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Text;
+using UnityEngine;
 using ColossalFramework.UI;
 
 
@@ -13,6 +14,12 @@ namespace TransitVehicleSpawnDelay
         private const float Margin = 5f;
         private const float LeftMargin = 24f;
         private const float GroupMargin = 40f;
+
+
+        // Slider display string caching.
+        string approxString = Translations.Translate("VSD_TIM_APP");
+        string hoursString = Translations.Translate("VSD_TIM_HRS");
+        string minutesString = Translations.Translate("VSD_TIM_MIN");
 
 
         /// <summary>
@@ -101,7 +108,16 @@ namespace TransitVehicleSpawnDelay
                 System.TimeSpan timespan = System.TimeSpan.FromHours(value / SimulationManager.DAYTIME_HOUR_TO_FRAME);
 
                 // Format label to display hours and minutes.
-                label.text = string.Format("In-game time approximately {0} hours {1} minutes", timespan.Hours, timespan.Minutes);
+                StringBuilder labelString = new StringBuilder(approxString);
+                labelString.Append(" ");
+                labelString.Append(timespan.Hours);
+                labelString.Append(" ");
+                labelString.Append(hoursString);
+                labelString.Append(" ");
+                labelString.Append(timespan.Minutes);
+                labelString.Append(" ");
+                labelString.Append(minutesString);
+                label.text = labelString.ToString();
             }
         }
     }
