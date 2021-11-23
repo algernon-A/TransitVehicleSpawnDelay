@@ -1,4 +1,7 @@
-﻿Version 1.1 -
+﻿- Add support for passenger helicopters and blimps
+
+
+Version 1.1 -
 
 - Add option for spawn delays to apply per-depot
 - Fix options panel not updating on game locale change

@@ -22,6 +22,13 @@ namespace TransitVehicleSpawnDelay
         internal static uint trolleybusDelay = 1024;
 
         [XmlIgnore]
+        internal static uint helicopterDelay = 1024;
+
+        [XmlIgnore]
+        internal static uint blimpDelay = 1024;
+
+
+        [XmlIgnore]
         internal static bool perDepot = false;
 
 
@@ -49,6 +56,12 @@ namespace TransitVehicleSpawnDelay
 
         [XmlElement("TrolleybusDelay")]
         public uint XMLTrolleybusDelay { get => trolleybusDelay; set => trolleybusDelay = value; }
+
+        [XmlElement("HelicopterDelay")]
+        public uint XMLHelicopterDelauy { get => helicopterDelay; set => helicopterDelay = value; }
+
+        [XmlElement("BlimpDelay")]
+        public uint XMLBlimpDelay { get => blimpDelay; set => blimpDelay = value; }
 
 
         // Use separate timer for each depot.

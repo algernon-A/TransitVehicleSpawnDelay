@@ -17,6 +17,8 @@ namespace TransitVehicleSpawnDelay
         private static uint tramFrame = 0;
         private static uint busFrame = 0;
         private static uint trolleybusFrame = 0;
+        private static uint blimpFrame = 0;
+        private static uint helicopterFrame = 0;
 
         // Dictionary of depots.
         private readonly static Dictionary<ushort, uint> depotFrames = new Dictionary<ushort, uint>();
@@ -59,7 +61,6 @@ namespace TransitVehicleSpawnDelay
                     }
                     break;
 
-
                 case TransferManager.TransferReason.Tram:
                     if (currentFrame < (ModSettings.perDepot ? GetDepotFrame(buildingID) : tramFrame) + ModSettings.tramDelay)
                     {
@@ -75,7 +76,6 @@ namespace TransitVehicleSpawnDelay
                     }
                     break;
 
-
                 case TransferManager.TransferReason.Trolleybus:
                     if (currentFrame < (ModSettings.perDepot ? GetDepotFrame(buildingID) : trolleybusFrame) + ModSettings.trolleybusDelay)
                     {
@@ -85,6 +85,36 @@ namespace TransitVehicleSpawnDelay
 
                     // Spawning can proceed; update last spawned frame.
                     trolleybusFrame = currentFrame;
+                    if (ModSettings.perDepot)
+                    {
+                        UpdateDepotFrame(buildingID, currentFrame);
+                    }
+                    break;
+
+                case TransferManager.TransferReason.PassengerHelicopter:
+                    if (currentFrame < (ModSettings.perDepot ? GetDepotFrame(buildingID) : helicopterFrame) + ModSettings.helicopterDelay)
+                    {
+                        // Elapsed framecount is too low; prevent execution of game method.
+                        return false;
+                    }
+
+                    // Spawning can proceed; update last spawned frame.
+                    helicopterFrame = currentFrame;
+                    if (ModSettings.perDepot)
+                    {
+                        UpdateDepotFrame(buildingID, currentFrame);
+                    }
+                    break;
+
+                case TransferManager.TransferReason.Blimp:
+                    if (currentFrame < (ModSettings.perDepot ? GetDepotFrame(buildingID) : blimpFrame) + ModSettings.blimpDelay)
+                    {
+                        // Elapsed framecount is too low; prevent execution of game method.
+                        return false;
+                    }
+
+                    // Spawning can proceed; update last spawned frame.
+                    blimpFrame = currentFrame;
                     if (ModSettings.perDepot)
                     {
                         UpdateDepotFrame(buildingID, currentFrame);
