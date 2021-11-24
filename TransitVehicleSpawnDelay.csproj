@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Code\Loading.cs" />
     <Compile Include="Code\Mod.cs" />
+    <Compile Include="Code\Patches\InfoPanelPatch.cs" />
     <Compile Include="Code\Patches\Patcher.cs" />
     <Compile Include="Code\Patches\DelayPatch.cs" />
     <Compile Include="Code\Settings\ModSettings.cs" />

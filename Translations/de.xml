@@ -7,6 +7,6 @@
     <Translation ID="VSD_TRA_DEL" String="Tram Abfahrts-Verzögerung" />
     <Translation ID="VSD_TRO_DEL" String="Trolleybus Abfahrts-Verzögerung" />
     <Translation ID="TRN_CHOICE" String="Sprache festlegen" />
-    <Translation ID="TRN_SYS" String="Spielsprache verwenden" />
+    <Translation ID="TRN_SYS" String="Systemsprache" />
   </Translations>
 </Language>
