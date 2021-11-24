@@ -18,8 +18,10 @@ namespace TransitVehicleSpawnDelay
 
         // Slider display string caching.
         private readonly string approxString = Translations.Translate("VSD_TIM_APP");
+        private readonly string hourString = Translations.Translate("VSD_TIM_HR");
         private readonly string hoursString = Translations.Translate("VSD_TIM_HRS");
-        private readonly string minutesString = Translations.Translate("VSD_TIM_MIN");
+        private readonly string minuteString = Translations.Translate("VSD_TIM_MN");
+        private readonly string minutesString = Translations.Translate("VSD_TIM_MNS");
 
 
         /// <summary>
@@ -120,11 +122,11 @@ namespace TransitVehicleSpawnDelay
                 labelString.Append(" ");
                 labelString.Append(timespan.Hours);
                 labelString.Append(" ");
-                labelString.Append(hoursString);
+                labelString.Append(timespan.Hours == 1 ? hourString : hoursString);
                 labelString.Append(" ");
                 labelString.Append(timespan.Minutes);
                 labelString.Append(" ");
-                labelString.Append(minutesString);
+                labelString.Append(timespan.Minutes == 1 ? minuteString : minutesString);
                 label.text = labelString.ToString();
             }
         }
