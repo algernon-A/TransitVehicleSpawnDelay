@@ -6,6 +6,9 @@
     <Translation ID="VSD_BUS_DEL" String="Bus Abfahrts-Verzögerung" />
     <Translation ID="VSD_TRA_DEL" String="Tram Abfahrts-Verzögerung" />
     <Translation ID="VSD_TRO_DEL" String="Trolleybus Abfahrts-Verzögerung" />
+    <Translation ID="VSD_HEL_DEL" String="Hubschrauber Abflugs-Verzögerung" />
+    <Translation ID="VSD_BLI_DEL" String="Zeppelin Abflugs-Verzögerung" />
+    <Translation ID="VSD_TIM_BLK" String="Nächste Abfahrt in" />
     <Translation ID="VSD_TIM_APP" String="Zeit im Spiel ungefähr" />
     <Translation ID="VSD_TIM_HR" String="Stunde" />
     <Translation ID="VSD_TIM_HRS" String="Stunden" />
