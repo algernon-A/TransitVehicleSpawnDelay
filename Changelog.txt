@@ -1,4 +1,7 @@
-﻿- Add support for passenger helicopters and blimps
+﻿Version 1.2 -
+
+- Add support for passenger helicopters and blimps
+- Add spawn delay countdown timer to depot info panels
 
 
 Version 1.1 -
