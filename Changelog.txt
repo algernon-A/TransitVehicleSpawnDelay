@@ -1,4 +1,10 @@
-﻿Version 1.1 -
+﻿Version 1.2 -
+
+- Add support for passenger helicopters and blimps
+- Add spawn delay countdown timer to depot info panels
+
+
+Version 1.1 -
 
 - Add option for spawn delays to apply per-depot
 - Fix options panel not updating on game locale change

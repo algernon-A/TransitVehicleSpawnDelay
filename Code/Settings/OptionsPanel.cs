@@ -17,9 +17,11 @@ namespace TransitVehicleSpawnDelay
 
 
         // Slider display string caching.
-        string approxString = Translations.Translate("VSD_TIM_APP");
-        string hoursString = Translations.Translate("VSD_TIM_HRS");
-        string minutesString = Translations.Translate("VSD_TIM_MIN");
+        private readonly string approxString = Translations.Translate("VSD_TIM_APP");
+        private readonly string hourString = Translations.Translate("VSD_TIM_HR");
+        private readonly string hoursString = Translations.Translate("VSD_TIM_HRS");
+        private readonly string minuteString = Translations.Translate("VSD_TIM_MN");
+        private readonly string minutesString = Translations.Translate("VSD_TIM_MNS");
 
 
         /// <summary>
@@ -63,6 +65,14 @@ namespace TransitVehicleSpawnDelay
             // Trolleybus delay slider.
             UISlider trolleybusSlider = AddDelaySlider(ref currentY, "VSD_TRO_DEL", ModSettings.trolleybusDelay);
             trolleybusSlider.eventValueChanged += (control, value) => { ModSettings.trolleybusDelay = (uint)value; };
+
+            // Helicopter delay slider.
+            UISlider helicopterSlider = AddDelaySlider(ref currentY, "VSD_HEL_DEL", ModSettings.helicopterDelay);
+            helicopterSlider.eventValueChanged += (control, value) => { ModSettings.helicopterDelay = (uint)value; };
+
+            // Trolleybus delay slider.
+            UISlider blimpSlider = AddDelaySlider(ref currentY, "VSD_BLI_DEL", ModSettings.blimpDelay);
+            blimpSlider.eventValueChanged += (control, value) => { ModSettings.blimpDelay = (uint)value; };
         }
 
 
@@ -88,7 +98,7 @@ namespace TransitVehicleSpawnDelay
             newSlider.eventValueChanged += SetTimeLabel;
 
             // Increment y position indicator.
-            yPos += newSlider.parent.height + timeLabel.height + GroupMargin;
+            yPos += newSlider.parent.height + timeLabel.height + Margin;
 
             return newSlider;
         }
@@ -112,11 +122,11 @@ namespace TransitVehicleSpawnDelay
                 labelString.Append(" ");
                 labelString.Append(timespan.Hours);
                 labelString.Append(" ");
-                labelString.Append(hoursString);
+                labelString.Append(timespan.Hours == 1 ? hourString : hoursString);
                 labelString.Append(" ");
                 labelString.Append(timespan.Minutes);
                 labelString.Append(" ");
-                labelString.Append(minutesString);
+                labelString.Append(timespan.Minutes == 1 ? minuteString : minutesString);
                 label.text = labelString.ToString();
             }
         }

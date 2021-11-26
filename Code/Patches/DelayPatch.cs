@@ -17,6 +17,8 @@ namespace TransitVehicleSpawnDelay
         private static uint tramFrame = 0;
         private static uint busFrame = 0;
         private static uint trolleybusFrame = 0;
+        private static uint blimpFrame = 0;
+        private static uint helicopterFrame = 0;
 
         // Dictionary of depots.
         private readonly static Dictionary<ushort, uint> depotFrames = new Dictionary<ushort, uint>();
@@ -40,60 +42,80 @@ namespace TransitVehicleSpawnDelay
             // Get current frame count.
             uint currentFrame = Singleton<SimulationManager>.instance.m_currentFrameIndex;
 
-            // Handling per transit type.
+            // Get targeted spawn time.
+            uint spawnTime = GetSpawnTime(buildingID, reason);
+
+            // Check to see if we've reached minimum spawn frame count.
+            if (currentFrame < spawnTime)
+            {
+                // Elapsed framecount is too low; prevent execution of game method.
+                return false;
+            }
+
+            // Spawning is successful; update timer with current time as new last-spawned time.
+            if (ModSettings.perDepot)
+            {
+                // Per-depot spawning; update spawning time.
+                UpdateDepotFrame(buildingID, currentFrame);
+            }
+            
+            // Update global spawn timer (still do this even if using per-depot in case user changes preferences from depot to global).
             switch (reason)
             {
                 case TransferManager.TransferReason.Bus:
-                    // Check to see if we've reached minimum spawn frame count.
-                    if (currentFrame < (ModSettings.perDepot ? GetDepotFrame(buildingID) : busFrame) + ModSettings.busDelay)
-                    {
-                        // Elapsed framecount is too low; prevent execution of game method.
-                        return false;
-                    }
-
-                    // Spawning can proceed; update last spawned frame.
                     busFrame = currentFrame;
-                    if (ModSettings.perDepot)
-                    {
-                        UpdateDepotFrame(buildingID, currentFrame);
-                    }
                     break;
-
 
                 case TransferManager.TransferReason.Tram:
-                    if (currentFrame < (ModSettings.perDepot ? GetDepotFrame(buildingID) : tramFrame) + ModSettings.tramDelay)
-                    {
-                        // Elapsed framecount is too low; prevent execution of game method.
-                        return false;
-                    }
-
-                    // Spawning can proceed; update last spawned frame.
                     tramFrame = currentFrame;
-                    if (ModSettings.perDepot)
-                    {
-                        UpdateDepotFrame(buildingID, currentFrame);
-                    }
                     break;
 
-
                 case TransferManager.TransferReason.Trolleybus:
-                    if (currentFrame < (ModSettings.perDepot ? GetDepotFrame(buildingID) : trolleybusFrame) + ModSettings.trolleybusDelay)
-                    {
-                        // Elapsed framecount is too low; prevent execution of game method.
-                        return false;
-                    }
-
-                    // Spawning can proceed; update last spawned frame.
                     trolleybusFrame = currentFrame;
-                    if (ModSettings.perDepot)
-                    {
-                        UpdateDepotFrame(buildingID, currentFrame);
-                    }
+                    break;
+
+                case TransferManager.TransferReason.PassengerHelicopter:
+                    helicopterFrame = currentFrame;
+                    break;
+
+                case TransferManager.TransferReason.Blimp:
+                    blimpFrame = currentFrame;
                     break;
             }
 
             // If we got here, we continue on to execute original game code (no delay enforced).
             return true;
+        }
+
+
+        /// <summary>
+        /// Gets the current minimum spawn frame for the specified depotID or TransferReason.
+        /// </summary>
+        /// <param name="depotID"></param>
+        /// <param name="reason"></param>
+        /// <returns></returns>
+        internal static uint GetSpawnTime(ushort depotID, TransferManager.TransferReason reason)
+        {
+            // Handling per transit type.
+            switch (reason)
+            {
+                case TransferManager.TransferReason.Bus:
+                    return (ModSettings.perDepot ? GetDepotFrame(depotID) : busFrame) + ModSettings.busDelay;
+
+                case TransferManager.TransferReason.Tram:
+                    return (ModSettings.perDepot ? GetDepotFrame(depotID) : tramFrame) + ModSettings.tramDelay;
+
+                case TransferManager.TransferReason.Trolleybus:
+                    return (ModSettings.perDepot ? GetDepotFrame(depotID) : trolleybusFrame) + ModSettings.trolleybusDelay;
+
+                case TransferManager.TransferReason.PassengerHelicopter:
+                    return (ModSettings.perDepot ? GetDepotFrame(depotID) : helicopterFrame) + ModSettings.helicopterDelay;
+
+                case TransferManager.TransferReason.Blimp:
+                    return (ModSettings.perDepot ? GetDepotFrame(depotID) : blimpFrame) + ModSettings.blimpDelay;
+                default:
+                    return 0;
+            }
         }
 
 
