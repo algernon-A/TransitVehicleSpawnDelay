@@ -6,9 +6,14 @@
     <Translation ID="VSD_BUS_DEL" String="バスのスポーンを遅延"/>
     <Translation ID="VSD_TRA_DEL" String="トラムのスポーンを遅延"/>
     <Translation ID="VSD_TRO_DEL" String="トローリーバスのスポーンを遅延"/>
-    <Translation ID="VSD_TIM_APP" String="ゲーム内の時間でおよそ"/>
+    <Translation ID="VSD_HEL_DEL" String="旅客ヘリのスポーンを遅延"/>
+    <Translation ID="VSD_BLI_DEL" String="飛行船のスポーンを遅延"/>
+    <Translation ID="VSD_TIM_BLK" String="ブロックされたスポーン:"/>
+    <Translation ID="VSD_TIM_APP" String="ゲーム内の時間でおよそ:"/>
+    <Translation ID="VSD_TIM_HR" String="時間"/>
     <Translation ID="VSD_TIM_HRS" String="時間"/>
-    <Translation ID="VSD_TIM_MIN" String="分"/>
+    <Translation ID="VSD_TIM_MN" String="分"/>
+    <Translation ID="VSD_TIM_MNS" String="分"/>
     <Translation ID="TRN_CHOICE" String="言語設定"/>
     <Translation ID="TRN_SYS" String="ゲームの言語を使用"/>
   </Translations>
