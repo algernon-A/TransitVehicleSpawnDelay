@@ -81,6 +81,7 @@
     <Content Include="Images\PreviewImage.png" />
     <Content Include="License.txt" />
     <Content Include="Translations\de.xml" />
+    <Content Include="Translations\ru.xml" />
     <Content Include="Translations\zh.xml" />
     <Content Include="Translations\en.xml" />
     <Content Include="Translations\ja.xml" />
