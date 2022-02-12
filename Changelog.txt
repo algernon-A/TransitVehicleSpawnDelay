@@ -1,4 +1,6 @@
-﻿- Add null checks to m_transportInfo and m_secondaryTransport info in delay Prefix patch
+﻿Version 1.2.1 -
+
+- Add null checks to m_transportInfo and m_secondaryTransport info in delay Prefix patch
 - Update bundled CitiesHarmony.API to 2.1.0 (Harmony 2.2)
 
 
