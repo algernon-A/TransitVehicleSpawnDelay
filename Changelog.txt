@@ -1,4 +1,7 @@
-﻿Version 1.2 -
+﻿- Add null checks to m_transportInfo and m_secondaryTransport info in delay Prefix patch
+
+
+Version 1.2 -
 
 - Add support for passenger helicopters and blimps
 - Add spawn delay countdown timer to depot info panels

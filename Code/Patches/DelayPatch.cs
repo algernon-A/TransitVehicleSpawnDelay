@@ -33,7 +33,7 @@ namespace TransitVehicleSpawnDelay
         public static bool Prefix(DepotAI __instance, ushort buildingID, TransferManager.TransferReason reason)
         {
             // Only cover offers that match this transit vehicle type.
-            if (reason != __instance.m_transportInfo.m_vehicleReason && reason != __instance.m_secondaryTransportInfo.m_vehicleReason)
+            if ((__instance.m_transportInfo == null || reason != __instance.m_transportInfo.m_vehicleReason) && (__instance.m_secondaryTransportInfo == null || reason != __instance.m_secondaryTransportInfo.m_vehicleReason))
             {
                 // Execute game code.
                 return true;
