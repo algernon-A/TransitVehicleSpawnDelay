@@ -28,12 +28,15 @@ namespace TransitVehicleSpawnDelay
         /// Harmony Prefix patch to DepotAI.StartTransfer to enforce a minimum time between tranit vehicles spawning.
         /// </summary>
         /// <param name="__instance">AI instance reference</param>
-        /// <param name="reason">Transfer reason</param>
+        /// <param name="rawReason">Transfer reason</param>
         /// <returns>True (continue on to orignal method) if vehicle can spawn, false (preempt original execution) if spawning is blocked</returns>
         public static bool Prefix(DepotAI __instance, ushort buildingID, TransferManager.TransferReason reason)
         {
+            // Convert any BiofuelBus reason to normal bus for our purposes.
+            TransferManager.TransferReason thisReason = reason == TransferManager.TransferReason.BiofuelBus ? TransferManager.TransferReason.Bus : reason;
+
             // Only cover offers that match this transit vehicle type.
-            if ((__instance.m_transportInfo == null || reason != __instance.m_transportInfo.m_vehicleReason) && (__instance.m_secondaryTransportInfo == null || reason != __instance.m_secondaryTransportInfo.m_vehicleReason))
+            if ((__instance.m_transportInfo == null || thisReason != __instance.m_transportInfo.m_vehicleReason) && (__instance.m_secondaryTransportInfo == null || thisReason != __instance.m_secondaryTransportInfo.m_vehicleReason))
             {
                 // Execute game code.
                 return true;
@@ -43,7 +46,7 @@ namespace TransitVehicleSpawnDelay
             uint currentFrame = Singleton<SimulationManager>.instance.m_currentFrameIndex;
 
             // Get targeted spawn time.
-            uint spawnTime = GetSpawnTime(buildingID, reason);
+            uint spawnTime = GetSpawnTime(buildingID, thisReason);
 
             // Check to see if we've reached minimum spawn frame count.
             if (currentFrame < spawnTime)
@@ -60,9 +63,10 @@ namespace TransitVehicleSpawnDelay
             }
             
             // Update global spawn timer (still do this even if using per-depot in case user changes preferences from depot to global).
-            switch (reason)
+            switch (thisReason)
             {
                 case TransferManager.TransferReason.Bus:
+                case TransferManager.TransferReason.BiofuelBus:
                     busFrame = currentFrame;
                     break;
 
