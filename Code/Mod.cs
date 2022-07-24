@@ -13,6 +13,7 @@ namespace TransitVehicleSpawnDelay
         public string Name => ModName + " " + Version;
         public string Description => Translations.Translate("VSD_DESC");
 
+
         /// <summary>
         /// Called by the game when the mod is enabled.
         /// </summary>

@@ -63,6 +63,9 @@ namespace TransitVehicleSpawnDelay
         [XmlElement("BlimpDelay")]
         public uint XMLBlimpDelay { get => blimpDelay; set => blimpDelay = value; }
 
+        [XmlElement("TrainDwell")]
+        public uint XMLTrainDwell { get => PassengerTrainPatches.minTrainDwell; set => PassengerTrainPatches.minTrainDwell = value; }
+
 
         // Use separate timer for each depot.
         [XmlElement("PerDepot")]

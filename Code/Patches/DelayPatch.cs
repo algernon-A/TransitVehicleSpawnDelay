@@ -59,7 +59,7 @@ namespace TransitVehicleSpawnDelay
             if (ModSettings.perDepot)
             {
                 // Per-depot spawning; update spawning time.
-                UpdateDepotFrame(buildingID, currentFrame);
+                depotFrames[buildingID] = currentFrame;
             }
             
             // Update global spawn timer (still do this even if using per-depot in case user changes preferences from depot to global).
@@ -129,24 +129,5 @@ namespace TransitVehicleSpawnDelay
         /// <param name="depotID">Building ID of depot</param>
         /// <returns>Last stored frame index for the given depot</returns>
         private static uint GetDepotFrame(ushort depotID) => depotFrames.TryGetValue(depotID, out uint frame) ? frame : 0;
-
-
-        /// <summary>
-        /// Stores the given frame index for the given depot.
-        /// </summary>
-        /// <param name="depotID">Building ID of depot</param>
-        /// <param name="frame">Frame index to store</param>
-        private static void UpdateDepotFrame(ushort depotID, uint frame)
-        {
-            // Update the existing entry if we have one, otherwise add a new entry.
-            if (depotFrames.ContainsKey(depotID))
-            {
-                depotFrames[depotID] = frame;
-            }
-            else
-            {
-                depotFrames.Add(depotID, frame);
-            }    
-        }
     }
 }

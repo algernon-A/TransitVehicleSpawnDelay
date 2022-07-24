@@ -73,6 +73,10 @@ namespace TransitVehicleSpawnDelay
             // Trolleybus delay slider.
             UISlider blimpSlider = AddDelaySlider(ref currentY, "VSD_BLI_DEL", ModSettings.blimpDelay);
             blimpSlider.eventValueChanged += (control, value) => { ModSettings.blimpDelay = (uint)value; };
+
+            // Train dwell slider.
+            UISlider trainSlider = AddDelaySlider(ref currentY, "VSD_TRN_DWE", PassengerTrainPatches.minTrainDwell);
+            trainSlider.eventValueChanged += (control, value) => { PassengerTrainPatches.minTrainDwell = (uint)value; };
         }
 
 
@@ -119,13 +123,13 @@ namespace TransitVehicleSpawnDelay
 
                 // Format label to display hours and minutes.
                 StringBuilder labelString = new StringBuilder(approxString);
-                labelString.Append(" ");
+                labelString.Append(' ');
                 labelString.Append(timespan.Hours);
-                labelString.Append(" ");
+                labelString.Append(' ');
                 labelString.Append(timespan.Hours == 1 ? hourString : hoursString);
-                labelString.Append(" ");
+                labelString.Append(' ');
                 labelString.Append(timespan.Minutes);
-                labelString.Append(" ");
+                labelString.Append(' ');
                 labelString.Append(timespan.Minutes == 1 ? minuteString : minutesString);
                 label.text = labelString.ToString();
             }
