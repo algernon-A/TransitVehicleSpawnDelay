@@ -1,0 +1,16 @@
+LANGUAGE,正體中文
+VSD_DESC,減緩大眾運輸車輛的生成速度。
+VSD_DEP_PER,為每個車庫使用單獨的計時器
+VSD_BUS_DEL,公車生成延遲
+VSD_TRA_DEL,電車生成延遲
+VSD_TRO_DEL,無軌電車生成延遲
+VSD_HEL_DEL,客運直升機生成延遲
+VSD_BLI_DEL,飛艇生成延遲
+VSD_TIM_BLK,生成被阻止因為
+VSD_TIM_APP,"“遊戲內(in-game)” 大約時間"
+VSD_TIM_HR,小時
+VSD_TIM_HRS,數小時
+VSD_TIM_MN,分鐘
+VSD_TIM_MNS,數分鐘
+TRN_CHOICE,語言設置
+TRN_SYS,使用遊戲預設語言
