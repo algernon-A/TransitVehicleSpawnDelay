@@ -13,7 +13,7 @@ namespace TransitVehicleSpawnDelay
         // Layout constants.
         private const float Margin = 5f;
         private const float LeftMargin = 24f;
-        private const float GroupMargin = 40f;
+        private const float GroupMargin = 30f;
 
 
         // Slider display string caching.
@@ -22,6 +22,7 @@ namespace TransitVehicleSpawnDelay
         private readonly string hoursString = Translations.Translate("VSD_TIM_HRS");
         private readonly string minuteString = Translations.Translate("VSD_TIM_MN");
         private readonly string minutesString = Translations.Translate("VSD_TIM_MNS");
+        private readonly string secondsNormalString = Translations.Translate("VSD_TIM_SNS");
 
 
         /// <summary>
@@ -46,7 +47,7 @@ namespace TransitVehicleSpawnDelay
                 ModSettings.Save();
             };
             languageDropDown.parent.relativePosition = new Vector2(LeftMargin, currentY);
-            currentY += languageDropDown.parent.height + GroupMargin;
+            currentY += languageDropDown.parent.height + Margin;
 
             // Per-depot timing checkbox.
             UICheckBox perDepotCheck = UIControls.AddPlainCheckBox(this, Margin, currentY, Translations.Translate("VSD_DEP_PER"));
@@ -94,7 +95,7 @@ namespace TransitVehicleSpawnDelay
             newSlider.parent.relativePosition = new Vector2(Margin, yPos);
 
             // Game-time label.
-            UILabel timeLabel = UIControls.AddLabel(newSlider.parent, Margin, newSlider.parent.height - Margin, string.Empty);
+            UILabel timeLabel = UIControls.AddLabel(newSlider.parent, Margin, 50f, string.Empty);
             newSlider.objectUserData = timeLabel;
 
             // Force set slider value to populate initial time label and add event handler.
@@ -102,7 +103,7 @@ namespace TransitVehicleSpawnDelay
             newSlider.eventValueChanged += SetTimeLabel;
 
             // Increment y position indicator.
-            yPos += newSlider.parent.height + timeLabel.height + Margin;
+            yPos += newSlider.parent.height + timeLabel.height;
 
             return newSlider;
         }
@@ -122,8 +123,11 @@ namespace TransitVehicleSpawnDelay
                 System.TimeSpan timespan = System.TimeSpan.FromHours(value / SimulationManager.DAYTIME_HOUR_TO_FRAME);
 
                 // Format label to display hours and minutes.
-                StringBuilder labelString = new StringBuilder(approxString);
+                StringBuilder labelString = new StringBuilder(((uint)value >> 6).ToString());
                 labelString.Append(' ');
+                labelString.Append(secondsNormalString);
+                labelString.Append(System.Environment.NewLine);
+                labelString.Append(approxString);
                 labelString.Append(timespan.Hours);
                 labelString.Append(' ');
                 labelString.Append(timespan.Hours == 1 ? hourString : hoursString);
@@ -131,6 +135,8 @@ namespace TransitVehicleSpawnDelay
                 labelString.Append(timespan.Minutes);
                 labelString.Append(' ');
                 labelString.Append(timespan.Minutes == 1 ? minuteString : minutesString);
+                labelString.Append(' ');
+
                 label.text = labelString.ToString();
             }
         }

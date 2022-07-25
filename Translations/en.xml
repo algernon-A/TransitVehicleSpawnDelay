@@ -1,21 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Language UniqueName="en" ReadableName="English">
-  <Translations>
-    <Translation ID="VSD_DESC" String="Attemps to slow down transport vehicle spawning." />
-    <Translation ID="VSD_DEP_PER" String="Use separate timers for each depot" />
-    <Translation ID="VSD_BUS_DEL" String="Bus spawning delay" />
-    <Translation ID="VSD_TRA_DEL" String="Tram spawning delay" />
-    <Translation ID="VSD_TRO_DEL" String="Trolleybus spawning delay" />
-    <Translation ID="VSD_HEL_DEL" String="Passenger helicopter spawning delay" />
-    <Translation ID="VSD_BLI_DEL" String="Blimp spawning delay" />
-    <Translation ID="VSD_TRN_DWE" String="Minimum train dwell time" />
-    <Translation ID="VSD_TIM_BLK" String="Spawning blocked for" />
-    <Translation ID="VSD_TIM_APP" String="In-game time approximately" />
-    <Translation ID="VSD_TIM_HR" String="hour" />
-    <Translation ID="VSD_TIM_HRS" String="hours" />
-    <Translation ID="VSD_TIM_MN" String="minute" />
-    <Translation ID="VSD_TIM_MNS" String="minutes" />
-    <Translation ID="TRN_CHOICE" String="Set language" />
-    <Translation ID="TRN_SYS" String="Use game language" />
-  </Translations>
+	<Translations>
+		<Translation ID="VSD_DESC" String="Attemps to slow down transport vehicle spawning." />
+		<Translation ID="VSD_DEP_PER" String="Use separate timers for each depot" />
+		<Translation ID="VSD_BUS_DEL" String="Bus spawning delay" />
+		<Translation ID="VSD_TRA_DEL" String="Tram spawning delay" />
+		<Translation ID="VSD_TRO_DEL" String="Trolleybus spawning delay" />
+		<Translation ID="VSD_HEL_DEL" String="Passenger helicopter spawning delay" />
+		<Translation ID="VSD_BLI_DEL" String="Blimp spawning delay" />
+		<Translation ID="VSD_TRN_DWE" String="Minimum train dwell time" />
+		<Translation ID="VSD_TIM_BLK" String="Spawning blocked for" />
+		<Translation ID="VSD_TIM_APP" String="In-game time approximately" />
+		<Translation ID="VSD_TIM_HR" String="hour" />
+		<Translation ID="VSD_TIM_HRS" String="hours" />
+		<Translation ID="VSD_TIM_MN" String="minute" />
+		<Translation ID="VSD_TIM_MNS" String="minutes" />
+		<Translation ID="VSD_TIM_SNS" String="seconds at normal speed" />
+		<Translation ID="TRN_CHOICE" String="Set language" />
+		<Translation ID="TRN_SYS" String="Use game language" />
+	</Translations>
 </Language>

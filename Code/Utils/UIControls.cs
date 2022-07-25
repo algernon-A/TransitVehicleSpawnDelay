@@ -119,6 +119,7 @@ namespace TransitVehicleSpawnDelay
         {
             // Add slider component.
             UIPanel sliderPanel = parent.AttachUIComponent(UITemplateManager.GetAsGameObject("OptionsSliderTemplate")) as UIPanel;
+            sliderPanel.autoLayout = false;
 
             // Label.
             UILabel sliderLabel = sliderPanel.Find<UILabel>("Label");
