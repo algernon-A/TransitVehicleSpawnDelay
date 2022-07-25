@@ -5,10 +5,10 @@ using CitiesHarmony.API;
 
 namespace TransitVehicleSpawnDelay
 {
-    public class VSDMod : IUserMod
+    public class Mod : IUserMod
     {
         public static string ModName => "Transit Vehicle Spawn Delay";
-        public static string Version => "1.2.2";
+        public static string Version => AssemblyUtils.CurrentVersion;
 
         public string Name => ModName + " " + Version;
         public string Description => Translations.Translate("VSD_DESC");

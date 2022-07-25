@@ -49,7 +49,7 @@ namespace TransitVehicleSpawnDelay
         {
             // Use StringBuilder for efficiency since we're doing a lot of manipulation here.
             // Start with mod name (to easily identify relevant messages), followed by colon to indicate start of actual message.
-            StringBuilder message = new StringBuilder(VSDMod.ModName);
+            StringBuilder message = new StringBuilder(Mod.ModName);
             message.Append(": ");
 
             // Add each message parameter.
@@ -88,7 +88,7 @@ namespace TransitVehicleSpawnDelay
         {
             // Use StringBuilder for efficiency since we're doing a lot of manipulation here.
             // Start with mod name (to easily identify relevant messages), followed by colon to indicate start of actual message.
-            StringBuilder message = new StringBuilder(VSDMod.ModName);
+            StringBuilder message = new StringBuilder(Mod.ModName);
             message.Append(": ");
 
             // Append prefix.

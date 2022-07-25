@@ -1,5 +1,6 @@
 ﻿- Add minimum train dwell time
 - Add real-time indication (in seconds at normal game speed) to delay times
+- Update translation framework
 
 
 Version 1.2.2 -

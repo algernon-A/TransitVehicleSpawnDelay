@@ -1,0 +1,16 @@
+LANGUAGE,Deutsch
+VSD_DESC,"Versuche, das erstmalige Abfahren (Spawnen) von ÖPNV-Fahrzeugen zu verzögern."
+VSD_DEP_PER,Nutze separate Verzögerungen je Depot
+VSD_BUS_DEL,Bus Abfahrts-Verzögerung
+VSD_TRA_DEL,Tram Abfahrts-Verzögerung
+VSD_TRO_DEL,Trolleybus Abfahrts-Verzögerung
+VSD_HEL_DEL,Hubschrauber Abflugs-Verzögerung
+VSD_BLI_DEL,Zeppelin Abflugs-Verzögerung
+VSD_TIM_BLK,Nächste Abfahrt in
+VSD_TIM_APP,Zeit im Spiel ungefähr
+VSD_TIM_HR,Stunde
+VSD_TIM_HRS,Stunden
+VSD_TIM_MN,Minute
+VSD_TIM_MNS,Minuten
+TRN_CHOICE,Sprache festlegen
+TRN_SYS,Systemsprache
