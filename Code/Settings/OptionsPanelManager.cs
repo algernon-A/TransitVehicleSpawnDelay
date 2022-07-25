@@ -13,15 +13,15 @@ namespace TransitVehicleSpawnDelay
     internal static class OptionsPanelManager
     {
         // Parent UI panel reference.
-        internal static UIScrollablePanel optionsPanel;
+        internal static UIScrollablePanel optionsParentPanel;
         private static UIPanel gameOptionsPanel;
 
         // Instance references.
         private static GameObject optionsGameObject;
-        private static VSDOptionsPanel panel;
+        private static OptionsPanel optionsPanel;
 
         // Accessors.
-        internal static VSDOptionsPanel Panel => panel;
+        internal static OptionsPanel Panel => optionsPanel;
         internal static bool IsOpen => optionsGameObject != null;
 
 
@@ -32,8 +32,8 @@ namespace TransitVehicleSpawnDelay
         internal static void Setup(UIHelperBase helper)
         {
             // Set up tab strip and containers.
-            optionsPanel = ((UIHelper)helper).self as UIScrollablePanel;
-            optionsPanel.autoLayout = false;
+            optionsParentPanel = ((UIHelper)helper).self as UIScrollablePanel;
+            optionsParentPanel.autoLayout = false;
         }
 
 
@@ -101,12 +101,18 @@ namespace TransitVehicleSpawnDelay
                 {
                     // Give it a unique name for easy finding with ModTools.
                     optionsGameObject = new GameObject("VSDOptionsPanel");
-                    optionsGameObject.transform.parent = optionsPanel.transform;
+                    optionsGameObject.transform.parent = optionsParentPanel.transform;
 
-                    panel = optionsGameObject.AddComponent<VSDOptionsPanel>();
+                    // Attach to game options panel.
+                    optionsGameObject.transform.parent = optionsParentPanel.transform;
 
-                    // Set up and show panel.
-                    Panel.Setup(optionsPanel.width, optionsPanel.height);
+                    // Create a base panel attached to our game object, perfectly overlaying the game options panel.
+                    optionsPanel = optionsGameObject.AddComponent<OptionsPanel>();
+                    optionsPanel.width = optionsParentPanel.width;
+                    optionsPanel.height = 725f;
+
+                    // Needed to ensure position is consistent if we regenerate after initial opening (e.g. on language change).
+                    optionsPanel.relativePosition = new Vector2(10f, 10f);
                 }
             }
             catch (Exception e)
@@ -127,7 +133,11 @@ namespace TransitVehicleSpawnDelay
             // We're no longer visible - destroy our game object.
             if (optionsGameObject != null)
             {
+                GameObject.Destroy(optionsPanel);
                 GameObject.Destroy(optionsGameObject);
+
+                // Release references.
+                optionsPanel = null;
                 optionsGameObject = null;
             }
         }

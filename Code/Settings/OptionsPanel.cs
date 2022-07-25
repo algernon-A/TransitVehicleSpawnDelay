@@ -8,7 +8,7 @@ namespace TransitVehicleSpawnDelay
     /// <summary>
     /// VSD options panel.
     /// </summary>
-    public class VSDOptionsPanel : UIPanel
+    public class OptionsPanel : UIPanel
     {
         // Layout constants.
         private const float Margin = 5f;
@@ -26,9 +26,9 @@ namespace TransitVehicleSpawnDelay
 
 
         /// <summary>
-        /// Performs initial setup for the panel; we don't use Start() as that's not sufficiently reliable (race conditions), and is not needed with the dynamic create/destroy process.
+        /// Constructor; performs initial setup for the panel.
         /// </summary>
-        internal void Setup(float width, float height)
+        internal OptionsPanel()
         {
             // Size and placement.
             this.width = width - (this.relativePosition.x * 2);
@@ -44,7 +44,7 @@ namespace TransitVehicleSpawnDelay
             languageDropDown.eventSelectedIndexChanged += (control, index) =>
             {
                 Translations.Index = index;
-                ModSettings.Save();
+                OptionsPanelManager.LocaleChanged();
             };
             languageDropDown.parent.relativePosition = new Vector2(LeftMargin, currentY);
             currentY += languageDropDown.parent.height + Margin;
