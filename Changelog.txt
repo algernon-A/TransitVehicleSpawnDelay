@@ -1,4 +1,6 @@
-﻿- Add minimum train dwell time
+﻿Version 1.3 -
+
+- Add minimum train dwell time
 - Add real-time indication (in seconds at normal game speed) to delay times
 - Auto-refresh options panel on language change
 - Update translation framework
