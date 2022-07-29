@@ -74,10 +74,6 @@ namespace TransitVehicleSpawnDelay
             // Trolleybus delay slider.
             UISlider blimpSlider = AddDelaySlider(ref currentY, "VSD_BLI_DEL", ModSettings.blimpDelay);
             blimpSlider.eventValueChanged += (control, value) => { ModSettings.blimpDelay = (uint)value; };
-
-            // Train dwell slider.
-            UISlider trainSlider = AddDelaySlider(ref currentY, "VSD_TRN_DWE", PassengerTrainPatches.minTrainDwell);
-            trainSlider.eventValueChanged += (control, value) => { PassengerTrainPatches.minTrainDwell = (uint)value; };
         }
 
 
