@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AlgernonCommons;
+using AlgernonCommons.Translation;
+using System;
 using System.IO;
 using System.Xml.Serialization;
 

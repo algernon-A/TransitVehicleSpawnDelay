@@ -1,4 +1,5 @@
-﻿using ICities;
+﻿using AlgernonCommons.UI;
+using ICities;
 
 
 namespace TransitVehicleSpawnDelay
@@ -21,7 +22,7 @@ namespace TransitVehicleSpawnDelay
             base.OnLevelLoaded(mode);
 
             // Set up options panel event handler (need to redo this now that options panel has been reset after loading into game).
-            OptionsPanelManager.OptionsEventHook();
+            OptionsPanelManager<OptionsPanel>.OptionsEventHook();
         }
     }
 }

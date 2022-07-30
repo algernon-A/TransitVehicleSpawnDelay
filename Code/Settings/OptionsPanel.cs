@@ -1,12 +1,13 @@
-﻿using System.Text;
-using UnityEngine;
+﻿using AlgernonCommons.Translation;
+using AlgernonCommons.UI;
 using ColossalFramework.UI;
+using System.Text;
 
 
 namespace TransitVehicleSpawnDelay
 {
     /// <summary>
-    /// VSD options panel.
+    /// TVSD options panel.
     /// </summary>
     public class OptionsPanel : UIPanel
     {
@@ -40,17 +41,16 @@ namespace TransitVehicleSpawnDelay
             float currentY = Margin;
 
             // Language choice.
-            UIDropDown languageDropDown = UIControls.AddPlainDropDown(this, Translations.Translate("TRN_CHOICE"), Translations.LanguageList, Translations.Index);
+            UIDropDown languageDropDown = UIDropDowns.AddPlainDropDown(this, LeftMargin, currentY, Translations.Translate("TRN_CHOICE"), Translations.LanguageList, Translations.Index);
             languageDropDown.eventSelectedIndexChanged += (control, index) =>
             {
                 Translations.Index = index;
-                OptionsPanelManager.LocaleChanged();
+                OptionsPanelManager<OptionsPanel>.LocaleChanged();
             };
-            languageDropDown.parent.relativePosition = new Vector2(LeftMargin, currentY);
             currentY += languageDropDown.parent.height + Margin;
 
             // Per-depot timing checkbox.
-            UICheckBox perDepotCheck = UIControls.AddPlainCheckBox(this, Margin, currentY, Translations.Translate("VSD_DEP_PER"));
+            UICheckBox perDepotCheck = UICheckBoxes.AddPlainCheckBox(this, Margin, currentY, Translations.Translate("VSD_DEP_PER"));
             perDepotCheck.isChecked = ModSettings.perDepot;
             perDepotCheck.eventCheckChanged += (control, value) => { ModSettings.perDepot = value; };
             currentY += perDepotCheck.height + GroupMargin;
@@ -87,11 +87,10 @@ namespace TransitVehicleSpawnDelay
         private UISlider AddDelaySlider(ref float yPos, string labelKey, uint initialValue)
         {
             // Create new slider.
-            UISlider newSlider = UIControls.AddSliderWithValue(this, Translations.Translate(labelKey), 1f, 16636f, 1f, initialValue);
-            newSlider.parent.relativePosition = new Vector2(Margin, yPos);
+            UISlider newSlider = UISliders.AddSliderWithValue(this, Margin, yPos, Translations.Translate(labelKey), 1f, 16636f, 1f, initialValue);
 
             // Game-time label.
-            UILabel timeLabel = UIControls.AddLabel(newSlider.parent, Margin, 50f, string.Empty);
+            UILabel timeLabel = UILabels.AddLabel(newSlider.parent, Margin, 50f, string.Empty);
             newSlider.objectUserData = timeLabel;
 
             // Force set slider value to populate initial time label and add event handler.
@@ -124,6 +123,7 @@ namespace TransitVehicleSpawnDelay
                 labelString.Append(secondsNormalString);
                 labelString.Append(System.Environment.NewLine);
                 labelString.Append(approxString);
+                labelString.Append(' ');
                 labelString.Append(timespan.Hours);
                 labelString.Append(' ');
                 labelString.Append(timespan.Hours == 1 ? hourString : hoursString);

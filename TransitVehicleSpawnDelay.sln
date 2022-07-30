@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransitVehicleSpawnDelay", "TransitVehicleSpawnDelay.csproj", "{C42216E6-F66E-41A5-B476-86EACC38CD1B}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AlgernonCommonsPatchingShared", "..\..\..\OneDrive\repos\AlgernonCommonsShared\AlgernonCommonsPatchingShared.shproj", "{25AEF446-6F0D-43A8-BB84-D1306789B68C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,5 +23,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4234445C-4CFB-49C0-BB9F-B07BB0B22C14}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\..\..\OneDrive\repos\AlgernonCommonsShared\AlgernonCommonsPatchingShared.projitems*{25aef446-6f0d-43a8-bb84-d1306789b68c}*SharedItemsImports = 13
+		..\..\..\OneDrive\repos\AlgernonCommonsShared\AlgernonCommonsPatchingShared.projitems*{c42216e6-f66e-41a5-b476-86eacc38cd1b}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal
