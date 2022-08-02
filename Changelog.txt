@@ -2,7 +2,7 @@
 
 - Add real-time indication (in seconds at normal game speed) to delay times
 - Auto-refresh options panel on language change
-- Update translation framework
+- Migrate to AlgernonCommons
 
 
 Version 1.2.2 -

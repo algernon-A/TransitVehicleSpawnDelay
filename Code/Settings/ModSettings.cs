@@ -1,126 +1,106 @@
-﻿using AlgernonCommons;
-using AlgernonCommons.Translation;
-using System;
-using System.IO;
-using System.Xml.Serialization;
-
+﻿// <copyright file="ModSettings.cs" company="algernon (K. Algernon A. Sheppard)">
+// Copyright (c) algernon (K. Algernon A. Sheppard). All rights reserved.
+// Licensed under the MIT license. See LICENSE.txt file in the project root for full license information.
+// </copyright>
 
 namespace TransitVehicleSpawnDelay
 {
+    using System.Xml.Serialization;
+    using AlgernonCommons.XML;
+
     /// <summary>
     /// Global mod settings.
     /// </summary>
-	[XmlRoot("TransitVehicleSpawnDelay")]
-    public class ModSettings
+    [XmlRoot("TransitVehicleSpawnDelay")]
+    public class ModSettings : SettingsXMLBase
     {
-        // Framecount delays, separate for each transit type.
-        [XmlIgnore]
-        internal static uint tramDelay = 1024;
-
-        [XmlIgnore]
-        internal static uint busDelay = 1024;
-
-        [XmlIgnore]
-        internal static uint trolleybusDelay = 1024;
-
-        [XmlIgnore]
-        internal static uint helicopterDelay = 1024;
-
-        [XmlIgnore]
-        internal static uint blimpDelay = 1024;
-
-
-        [XmlIgnore]
-        internal static bool perDepot = false;
-
-
         // Settings file name
         [XmlIgnore]
         private static readonly string SettingsFileName = "TransitVehicleSpawnDelay.xml";
 
-
-        // Language.
-        [XmlElement("Language")]
-        public string Language
-        {
-            get => Translations.CurrentLanguage;
-
-            set => Translations.CurrentLanguage = value;
-        }
-
-
-        // Framecount delays, separate for each transit type.
+        /// <summary>
+        /// Gets or sets the tram spawning delay framecount.
+        /// </summary>
         [XmlElement("TramDelay")]
-        public uint XMLTramDelay { get => tramDelay; set => tramDelay = value; }
+        public uint XMLTramDelay { get => TramDelay; set => TramDelay = value; }
 
+        /// <summary>
+        /// Gets or sets the bus spawning delay framecount.
+        /// </summary>
         [XmlElement("BusDelay")]
-        public uint XMLBusDelay { get => busDelay; set => busDelay = value; }
+        public uint XMLBusDelay { get => BusDelay; set => BusDelay = value; }
 
+        /// <summary>
+        /// Gets or sets the trolleybus spawning delay framecount.
+        /// </summary>
+        [XmlIgnore]
         [XmlElement("TrolleybusDelay")]
-        public uint XMLTrolleybusDelay { get => trolleybusDelay; set => trolleybusDelay = value; }
+        public uint XMLTrolleybusDelay { get => TrolleybusDelay; set => TrolleybusDelay = value; }
 
+        /// <summary>
+        /// Gets or sets the helicopter spawning delay framecount.
+        /// </summary>
+        [XmlIgnore]
         [XmlElement("HelicopterDelay")]
-        public uint XMLHelicopterDelauy { get => helicopterDelay; set => helicopterDelay = value; }
+        public uint XMLHelicopterDelauy { get => HelicopterDelay; set => HelicopterDelay = value; }
 
+        /// <summary>
+        /// Gets or sets the blimp spawning delay framecount.
+        /// </summary>
         [XmlElement("BlimpDelay")]
-        public uint XMLBlimpDelay { get => blimpDelay; set => blimpDelay = value; }
+        public uint XMLBlimpDelay { get => BlimpDelay; set => BlimpDelay = value; }
 
-
+        /// <summary>
+        /// Gets or sets a value indicating whether per-depot delay settings are in effect (true) or not (false).
+        /// </summary>
         // Use separate timer for each depot.
         [XmlElement("PerDepot")]
-        public bool XMLPerDepot { get => perDepot; set => perDepot = value; }
-
-
-        /// <summary>
-        /// Load settings from XML file.
-        /// </summary>
-        internal static void Load()
-        {
-            try
-            {
-                // Check to see if configuration file exists.
-                if (File.Exists(SettingsFileName))
-                {
-                    // Read it.
-                    using (StreamReader reader = new StreamReader(SettingsFileName))
-                    {
-                        XmlSerializer xmlSerializer = new XmlSerializer(typeof(ModSettings));
-                        if (!(xmlSerializer.Deserialize(reader) is ModSettings ZoningModSettingsFile))
-                        {
-                            Logging.Error("couldn't deserialize settings file");
-                        }
-                    }
-                }
-                else
-                {
-                    Logging.Message("no settings file found");
-                }
-            }
-            catch (Exception e)
-            {
-                Logging.LogException(e, "exception reading XML settings file");
-            }
-        }
-
+        public bool XMLPerDepot { get => PerDepot; set => PerDepot = value; }
 
         /// <summary>
-        /// Save settings to XML file.
+        /// Gets or sets the tram spawning delay framecount.
         /// </summary>
-        internal static void Save()
-        {
-            try
-            {
-                // Pretty straightforward.  Serialisation is within GBRSettingsFile class.
-                using (StreamWriter writer = new StreamWriter(SettingsFileName))
-                {
-                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(ModSettings));
-                    xmlSerializer.Serialize(writer, new ModSettings());
-                }
-            }
-            catch (Exception e)
-            {
-                Logging.LogException(e, "exception saving XML settings file");
-            }
-        }
+        [XmlIgnore]
+        internal static uint TramDelay { get; set; } = 1024;
+
+        /// <summary>
+        /// Gets or sets the bus spawning delay framecount.
+        /// </summary>
+        [XmlIgnore]
+        internal static uint BusDelay { get; set; } = 1024;
+
+        /// <summary>
+        /// Gets or sets the trolleybus spawning delay framecount.
+        /// </summary>
+        [XmlIgnore]
+        internal static uint TrolleybusDelay { get; set; } = 1024;
+
+        /// <summary>
+        /// Gets or sets the helicopter spawning delay framecount.
+        /// </summary>
+        [XmlIgnore]
+        internal static uint HelicopterDelay { get; set; } = 1024;
+
+        /// <summary>
+        /// Gets or sets the blimp spawning delay framecount.
+        /// </summary>
+        [XmlIgnore]
+        internal static uint BlimpDelay { get; set; } = 1024;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether per-depot delay settings are in effect (true) or not (false).
+        /// </summary>
+        [XmlIgnore]
+        internal static bool PerDepot { get; set; } = false;
+
+        /// <summary>
+        /// Loads settings from file.
+        /// </summary>
+        internal static void Load() => XMLFileUtils.Load<ModSettings>(SettingsFileName);
+
+        /// <summary>
+        /// Saves settings to file.
+        /// </summary>
+        internal static void Save() => XMLFileUtils.Save<ModSettings>(SettingsFileName);
     }
 }
