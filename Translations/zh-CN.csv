@@ -1,16 +1,18 @@
-LANGUAGE,简体中文
-VSD_DESC,试图延迟交通工具发车速度。
-VSD_DEP_PER,为不同的发车点使用单独的发车时间
-VSD_BUS_DEL,延迟公交车发车速度
-VSD_TRA_DEL,延迟有轨电车发车速度
-VSD_TRO_DEL,延迟无轨电车发车速度
-VSD_HEL_DEL,直升机发车延迟
-VSD_BLI_DEL,小型飞船发车延迟
-VSD_TIM_BLK,已对其延迟发车
-VSD_TIM_APP,游戏时间约
-VSD_TIM_HR,小时
-VSD_TIM_HRS,小时
-VSD_TIM_MN,分钟
-VSD_TIM_MNS,分钟
-TRN_CHOICE,语言设定
-TRN_SYS,使用游戏默认语言
+"LANGUAGE","简体中文"
+"VSD_DESC","试图延迟交通工具发车速度。"
+"VSD_DEP_PER","为不同的发车点使用单独的发车时间"
+"VSD_BUS_DEL","延迟公交车发车速度"
+"VSD_TRA_DEL","延迟有轨电车发车速度"
+"VSD_TRO_DEL","延迟无轨电车发车速度"
+"VSD_HEL_DEL","直升机发车延迟"
+"VSD_BLI_DEL","小型飞船发车延迟"
+"VSD_TRN_DWE","Minimum train dwell time"
+"VSD_TIM_BLK","已对其延迟发车"
+"VSD_TIM_APP","游戏时间约"
+"VSD_TIM_HR","小时"
+"VSD_TIM_HRS","小时"
+"VSD_TIM_MN","分钟"
+"VSD_TIM_MNS","分钟"
+"VSD_TIM_SNS","seconds at normal speed"
+"TRN_CHOICE","语言设定"
+"LANGUAGE_GAME","使用游戏默认语言"
