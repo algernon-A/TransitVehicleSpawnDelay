@@ -1,5 +1,5 @@
 "LANGUAGE","English"
-"VSD_DESC","Attemps to slow down transport vehicle spawning."
+"VSD_DESC","Attempts to slow down transport vehicle spawning."
 "VSD_DEP_PER","Use separate timers for each depot"
 "VSD_BUS_DEL","Bus spawning delay"
 "VSD_TRA_DEL","Tram spawning delay"
