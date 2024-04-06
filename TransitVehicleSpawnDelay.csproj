@@ -1,9 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>net35</TargetFramework>
-		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<AssemblyName>TransitVehicleSpawnDelay</AssemblyName>
+		<Title>Transit Vehicle Spawn Delay</Title>
+		<AssemblyTitle>$(Title)</AssemblyTitle>
 		<Description>A Cities: Skylines mod.</Description>
-		<Version>1.3</Version>
+		<Authors>algernon</Authors>
+		<Copyright>Copyright © 2022-24 algernon</Copyright>
+		<Product>$(Title)</Product>
+		<Version>1.3.1</Version>
+		<IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
 		<ManagedDLLPath>$(MSBuildProgramFiles32)/Steam/steamapps/common/Cities_Skylines/Cities_Data/Managed</ManagedDLLPath>
 		<AssemblySearchPaths>
 			$(AssemblySearchPaths);
