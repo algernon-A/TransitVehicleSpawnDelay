@@ -13,7 +13,7 @@ namespace TransitVehicleSpawnDelay
     /// <summary>
     /// TVSD options panel.
     /// </summary>
-    public class OptionsPanel : UIPanel
+    public class OptionsPanel : OptionsPanelBase
     {
         // Layout constants.
         private const float Margin = 5f;
@@ -29,14 +29,14 @@ namespace TransitVehicleSpawnDelay
         private readonly string secondsNormalString = Translations.Translate("VSD_TIM_SNS");
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OptionsPanel"/> class.
+        /// Performs on-demand panel setup.
         /// </summary>
-        internal OptionsPanel()
+        protected override void Setup()
         {
             // Size and placement.
-            this.width = width - (this.relativePosition.x * 2);
-            this.height = height - (this.relativePosition.y * 2);
-            this.autoLayout = false;
+            width = width - (relativePosition.x * 2);
+            height = height - (relativePosition.y * 2);
+            autoLayout = false;
 
             // Add controls.
             // Y position indicator.
