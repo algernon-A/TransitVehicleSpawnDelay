@@ -14,7 +14,7 @@ namespace TransitVehicleSpawnDelay
     /// Priority is to run before IPT2 and TLM to ensure no conflict.
     /// </summary>
     [HarmonyPatch(typeof(DepotAI), nameof(DepotAI.StartTransfer))]
-    [HarmonyBefore("github.com/bloodypenguin/ImprovedPublicTransport", "com.klyte.redirectors.TLM")]
+    [HarmonyBefore("github.com/bloodypenguin/ImprovedPublicTransport", "com.klyte.redirectors.TLM", "com.redirectors.TLM")]
     public static class DelayPatch
     {
         // Dictionary of depots and framecounts.
