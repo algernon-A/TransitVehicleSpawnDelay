@@ -33,14 +33,12 @@ namespace TransitVehicleSpawnDelay
         /// <summary>
         /// Gets or sets the trolleybus spawning delay framecount.
         /// </summary>
-        [XmlIgnore]
         [XmlElement("TrolleybusDelay")]
         public uint XMLTrolleybusDelay { get => TrolleybusDelay; set => TrolleybusDelay = value; }
 
         /// <summary>
         /// Gets or sets the helicopter spawning delay framecount.
         /// </summary>
-        [XmlIgnore]
         [XmlElement("HelicopterDelay")]
         public uint XMLHelicopterDelauy { get => HelicopterDelay; set => HelicopterDelay = value; }
 
